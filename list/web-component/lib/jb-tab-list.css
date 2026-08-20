@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.tab-list {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  box-sizing: border-box;
+  gap: var(--gap);
+  padding: var(--padding);
+  border-radius: var(--background-border-radius);
+  background: var(--background);
+}
+
+:host([orientation="vertical"]) .tab-list {
+  flex-direction: column;
+}
+
+.selection-indicator {
+  position: absolute;
+  inset: 0 auto auto 0;
+  z-index: 0;
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  border-radius: var(--indicator-radius);
+  background-color: var(--indicator-color-from-trigger, var(--indicator-color));
+  box-shadow: var(--indicator-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform var(--indicator-duration) var(--indicator-easing),
+    width var(--indicator-duration) var(--indicator-easing),
+    height var(--indicator-duration) var(--indicator-easing),
+    border-radius var(--indicator-duration) var(--indicator-easing),
+    background-color var(--indicator-duration) var(--indicator-easing),
+    opacity 120ms ease;
+}
+
+.selection-indicator[data-visible="true"] {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selection-indicator {
+    transition-duration: 0.01ms;
+  }
+}

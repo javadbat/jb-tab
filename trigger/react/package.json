@@ -1,0 +1,6 @@
+{
+  "name": "jb-tab-trigger-react",
+  "description": "React wrapper for jb-tab-trigger",
+  "private": true,
+  "type": "module"
+}

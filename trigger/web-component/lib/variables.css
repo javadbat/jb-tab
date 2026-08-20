@@ -1,0 +1,83 @@
+:host {
+  --background: var(--jb-tab-trigger-background, transparent);
+  --background-hover: var(--jb-tab-trigger-background-hover, transparent);
+  --color: var(--jb-tab-trigger-color, var(--jb-content-secondary));
+  --color-hover: var(--jb-tab-trigger-color-hover, var(--jb-content-primary));
+  --color-selected: var(--jb-tab-trigger-color-selected, var(--selected-color-from-indicator, var(--jb-content-primary)));
+  --height: var(--jb-tab-trigger-height, var(--tab-trigger-height, var(--jb-control-height-md, 2.5rem)));
+  --block-padding: var(--jb-tab-trigger-block-padding, var(--tab-trigger-block-padding, var(--jb-tab-trigger-block-padding-md, 0.5rem)));
+  --inline-padding: var(--jb-tab-trigger-inline-padding, var(--tab-trigger-inline-padding, var(--jb-tab-trigger-inline-padding-md, 1rem)));
+  --padding: var(--jb-tab-trigger-padding, var(--block-padding) var(--inline-padding));
+  --size-border-radius: var(--tab-trigger-border-radius, var(--jb-tab-trigger-border-radius-md, var(--jb-radius)));
+  --border-radius: var(--jb-tab-trigger-border-radius, var(--size-border-radius));
+  --font-size: var(--jb-tab-trigger-font-size, var(--tab-trigger-font-size, var(--jb-tab-trigger-font-size-md, 1rem)));
+  --font-weight: var(--jb-tab-trigger-font-weight, 500);
+  --font-weight-selected: var(--jb-tab-trigger-font-weight-selected, 600);
+  --focus-ring-color: var(--jb-tab-trigger-focus-ring-color, Highlight);
+}
+
+:host([color="primary"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-primary, var(--jb-primary));
+}
+
+:host([color="primary-subtle"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-primary-subtle, var(--jb-primary-subtle));
+}
+
+:host([color="secondary"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-secondary, var(--jb-secondary));
+}
+
+:host([color="secondary-subtle"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-secondary-subtle, var(--jb-secondary-subtle));
+}
+
+:host([color="positive"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-positive, var(--jb-green));
+}
+
+:host([color="positive-subtle"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-positive-subtle, var(--jb-green-subtle));
+}
+
+:host([color="danger"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-danger, var(--jb-red));
+}
+
+:host([color="danger-subtle"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-danger-subtle, var(--jb-red-subtle));
+}
+
+:host([color="warning"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-warning, var(--jb-yellow));
+}
+
+:host([color="warning-subtle"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-warning-subtle, var(--jb-yellow-subtle));
+}
+
+:host([color="light"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-light, var(--jb-surface-primary));
+}
+
+:host([color="dark"]) {
+  --indicator-color-from-attribute: var(--jb-tab-trigger-dark, var(--jb-neutral));
+}
+
+:host([color="primary"]),
+:host([color="secondary"]),
+:host([color="positive"]),
+:host([color="danger"]),
+:host([color="warning"]),
+:host([color="dark"]) {
+  --selected-color-from-indicator: var(--jb-content-inverse);
+}
+
+:host([color="primary-subtle"]),
+:host([color="secondary-subtle"]),
+:host([color="positive-subtle"]),
+:host([color="danger-subtle"]),
+:host([color="warning-subtle"]),
+:host([color="light"]) {
+  --selected-color-from-indicator: var(--jb-content-primary);
+}

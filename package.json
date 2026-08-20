@@ -1,0 +1,93 @@
+{
+  "name": "jb-tab",
+  "version": "0.1.0",
+  "description": "Accessible tabs web components for the JB design system",
+  "type": "module",
+  "author": {
+    "name": "mohammad javad bathaei",
+    "email": "javadbat@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jb",
+    "tab",
+    "tabs",
+    "web component",
+    "react",
+    "typescript"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "web-component/custom-elements.json",
+    "web-component/index.js",
+    "web-component/lib/",
+    "web-component/dist/",
+    "react/",
+    "list/",
+    "trigger/",
+    "content/"
+  ],
+  "main": "index.js",
+  "types": "./web-component/dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./web-component/dist/index.d.ts",
+      "default": "./index.js"
+    },
+    "./web-component": {
+      "types": "./web-component/dist/index.d.ts",
+      "default": "./web-component/index.js"
+    },
+    "./react": {
+      "types": "./react/dist/index.d.ts",
+      "default": "./react/index.js"
+    },
+    "./list": {
+      "types": "./list/web-component/dist/index.d.ts",
+      "default": "./list/index.js"
+    },
+    "./list/web-component": {
+      "types": "./list/web-component/dist/index.d.ts",
+      "default": "./list/web-component/index.js"
+    },
+    "./list/react": {
+      "types": "./list/react/dist/index.d.ts",
+      "default": "./list/react/index.js"
+    },
+    "./trigger": {
+      "types": "./trigger/web-component/dist/index.d.ts",
+      "default": "./trigger/index.js"
+    },
+    "./trigger/web-component": {
+      "types": "./trigger/web-component/dist/index.d.ts",
+      "default": "./trigger/web-component/index.js"
+    },
+    "./trigger/react": {
+      "types": "./trigger/react/dist/index.d.ts",
+      "default": "./trigger/react/index.js"
+    },
+    "./content": {
+      "types": "./content/web-component/dist/index.d.ts",
+      "default": "./content/index.js"
+    },
+    "./content/web-component": {
+      "types": "./content/web-component/dist/index.d.ts",
+      "default": "./content/web-component/index.js"
+    },
+    "./content/react": {
+      "types": "./content/react/dist/index.d.ts",
+      "default": "./content/react/index.js"
+    },
+    "./*": "./*"
+  },
+  "customElements": "web-component/custom-elements.json",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:javadbat/jb-tab.git"
+  },
+  "dependencies": {
+    "jb-core": "^0.35.0"
+  }
+}

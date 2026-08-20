@@ -1,0 +1,43 @@
+:host {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  box-sizing: border-box;
+  height: var(--height);
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  background: var(--background);
+  color: var(--color);
+  cursor: pointer;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  outline: none;
+  user-select: none;
+  transition: background-color 200ms ease;
+}
+
+:host(:hover:not([disabled])) {
+  background: var(--background-hover);
+  color: var(--color-hover);
+}
+
+:host([selected]) {
+  color: var(--color-selected);
+  font-weight: var(--font-weight-selected);
+}
+
+:host(:focus-visible) {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+:host([disabled]) {
+  cursor: not-allowed;
+  opacity: var(--jb-tab-trigger-disabled-opacity, 0.5);
+}
+
+.trigger-content {
+  display: contents;
+}

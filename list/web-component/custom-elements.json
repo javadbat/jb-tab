@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "../../README.md",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "lib/jb-tab-list.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "JBTabListWebComponent",
+          "description": "ARIA tab list with keyboard navigation and a moving selection indicator.",
+          "customElement": true,
+          "tagName": "jb-tab-list",
+          "superclass": { "name": "HTMLElement" },
+          "attributes": [
+            { "name": "orientation", "type": { "text": "'horizontal' | 'vertical'" }, "default": "horizontal" },
+            { "name": "size", "type": { "text": "'xs' | 'sm' | 'md' | 'lg' | 'xl'" }, "default": "md" }
+          ],
+          "members": [
+            { "kind": "field", "name": "orientation", "type": { "text": "'horizontal' | 'vertical'" } },
+            { "kind": "field", "name": "size", "type": { "text": "'xs' | 'sm' | 'md' | 'lg' | 'xl'" } },
+            { "kind": "field", "name": "selectedTrigger", "type": { "text": "JBTabTriggerWebComponent | null" }, "readonly": true }
+          ],
+          "methods": [{ "name": "refreshIndicator", "description": "Recalculates the indicator geometry." }],
+          "slots": [{ "name": "", "description": "Direct jb-tab-trigger children." }],
+          "cssParts": [{ "name": "list" }, { "name": "indicator" }],
+          "cssProperties": [
+            { "name": "--jb-tab-list-background" },
+            { "name": "--jb-tab-list-padding" },
+            { "name": "--jb-tab-trigger-height" },
+            { "name": "--jb-tab-trigger-block-padding" },
+            { "name": "--jb-tab-trigger-inline-padding" },
+            { "name": "--jb-tab-trigger-font-size" },
+            { "name": "--jb-tab-trigger-border-radius" },
+            { "name": "--jb-tab-list-indicator-color" },
+            { "name": "--jb-tab-list-indicator-duration" },
+            { "name": "--jb-tab-list-indicator-easing" },
+            { "name": "--jb-tab-list-indicator-shadow" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+:host {
+  --size-padding: var(--jb-tab-list-padding-md, 0.25rem);
+  --size-trigger-height: var(--jb-tab-trigger-height-md, var(--jb-control-height-md, 2.5rem));
+  --size-trigger-block-padding: var(--jb-tab-trigger-block-padding-md, 0.5rem);
+  --size-trigger-inline-padding: var(--jb-tab-trigger-inline-padding-md, 1rem);
+  --size-trigger-border-radius: var(--jb-tab-trigger-border-radius-md, var(--jb-radius));
+  --size-trigger-font-size: var(--jb-tab-trigger-font-size-md, 1rem);
+  --background: var(--jb-tab-list-background, var(--jb-surface-secondary));
+  --padding: var(--jb-tab-list-padding, var(--size-padding));
+  --gap: var(--jb-tab-list-gap, 0);
+  --tab-trigger-height: var(--jb-tab-trigger-height, var(--size-trigger-height));
+  --tab-trigger-block-padding: var(--jb-tab-trigger-block-padding, var(--size-trigger-block-padding));
+  --tab-trigger-inline-padding: var(--jb-tab-trigger-inline-padding, var(--size-trigger-inline-padding));
+  --tab-trigger-font-size: var(--jb-tab-trigger-font-size, var(--size-trigger-font-size));
+  --tab-trigger-border-radius: var(--jb-tab-trigger-border-radius, var(--size-trigger-border-radius));
+  --background-border-radius: calc(var(--tab-trigger-border-radius) + var(--padding));
+  --indicator-color: var(--jb-tab-list-indicator-color, var(--jb-surface-primary));
+  --indicator-radius: var(--tab-trigger-border-radius);
+  --indicator-duration: var(--jb-tab-list-indicator-duration, 240ms);
+  --indicator-easing: var(--jb-tab-list-indicator-easing, cubic-bezier(0.2, 0.8, 0.2, 1));
+  --indicator-shadow: var(--jb-tab-list-indicator-shadow, 0 1px 3px rgb(0 0 0 / 0.12));
+}
+
+:host([size="xs"]) {
+  --size-padding: var(--jb-tab-list-padding-xs, 0.125rem);
+  --size-trigger-height: var(--jb-tab-trigger-height-xs, var(--jb-control-height-xs, 1.5rem));
+  --size-trigger-block-padding: var(--jb-tab-trigger-block-padding-xs, 0.125rem);
+  --size-trigger-inline-padding: var(--jb-tab-trigger-inline-padding-xs, 0.25rem);
+  --size-trigger-border-radius: var(--jb-tab-trigger-border-radius-xs, var(--jb-radius-xs));
+  --size-trigger-font-size: var(--jb-tab-trigger-font-size-xs, 0.75rem);
+}
+
+:host([size="sm"]) {
+  --size-padding: var(--jb-tab-list-padding-sm, 0.1875rem);
+  --size-trigger-height: var(--jb-tab-trigger-height-sm, var(--jb-control-height-sm, 2rem));
+  --size-trigger-block-padding: var(--jb-tab-trigger-block-padding-sm, 0.25rem);
+  --size-trigger-inline-padding: var(--jb-tab-trigger-inline-padding-sm, 0.5rem);
+  --size-trigger-border-radius: var(--jb-tab-trigger-border-radius-sm, var(--jb-radius-sm));
+  --size-trigger-font-size: var(--jb-tab-trigger-font-size-sm, 0.875rem);
+}
+
+:host([size="lg"]) {
+  --size-padding: var(--jb-tab-list-padding-lg, 0.375rem);
+  --size-trigger-height: var(--jb-tab-trigger-height-lg, var(--jb-control-height-lg, 3rem));
+  --size-trigger-block-padding: var(--jb-tab-trigger-block-padding-lg, 0.75rem);
+  --size-trigger-inline-padding: var(--jb-tab-trigger-inline-padding-lg, 1.5rem);
+  --size-trigger-border-radius: var(--jb-tab-trigger-border-radius-lg, var(--jb-radius-lg));
+  --size-trigger-font-size: var(--jb-tab-trigger-font-size-lg, 1.125rem);
+}
+
+:host([size="xl"]) {
+  --size-padding: var(--jb-tab-list-padding-xl, 0.5rem);
+  --size-trigger-height: var(--jb-tab-trigger-height-xl, var(--jb-control-height-xl, 4rem));
+  --size-trigger-block-padding: var(--jb-tab-trigger-block-padding-xl, 1rem);
+  --size-trigger-inline-padding: var(--jb-tab-trigger-inline-padding-xl, 2rem);
+  --size-trigger-border-radius: var(--jb-tab-trigger-border-radius-xl, var(--jb-radius-xl));
+  --size-trigger-font-size: var(--jb-tab-trigger-font-size-xl, 1.25rem);
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "../README.md",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "lib/jb-tab.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "JBTabWebComponent",
+          "description": "Context and single selection owner for a tab list and its content panels.",
+          "customElement": true,
+          "tagName": "jb-tab",
+          "superclass": { "name": "HTMLElement" },
+          "attributes": [
+            { "name": "value", "type": { "text": "string" }, "description": "Currently selected trigger value." },
+            { "name": "default-value", "type": { "text": "string" }, "description": "Initial uncontrolled value." },
+            { "name": "nullable", "type": { "text": "boolean" }, "default": "false", "description": "Allows the initial and programmatic value to remain null." }
+          ],
+          "members": [
+            { "kind": "field", "name": "value", "type": { "text": "string | null" } },
+            { "kind": "field", "name": "defaultValue", "type": { "text": "string | null" } },
+            { "kind": "field", "name": "nullable", "type": { "text": "boolean" } }
+          ],
+          "methods": [{ "name": "refresh", "description": "Immediately re-discovers descendants and synchronizes selection." }],
+          "events": [
+            {
+              "name": "change",
+              "type": { "text": "CustomEvent<{ value: string; previousValue: string | null; trigger: JBTabTriggerWebComponent }>" },
+              "description": "Dispatched after user selection changes the active value."
+            }
+          ],
+          "slots": [{ "name": "", "description": "Tab list, content panels, and arbitrary layout elements." }]
+        }
+      ]
+    }
+  ]
+}

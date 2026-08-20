@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "../../README.md",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "lib/jb-tab-content.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "JBTabContentWebComponent",
+          "description": "Display-based tab panel controlled by its nearest jb-tab context.",
+          "customElement": true,
+          "tagName": "jb-tab-content",
+          "superclass": { "name": "HTMLElement" },
+          "attributes": [{ "name": "value", "type": { "text": "string" }, "description": "Value paired with a trigger." }],
+          "members": [{ "kind": "field", "name": "value", "type": { "text": "string" } }, { "kind": "field", "name": "selected", "type": { "text": "boolean" }, "readonly": true }],
+          "slots": [{ "name": "", "description": "Panel content." }]
+        }
+      ]
+    }
+  ]
+}

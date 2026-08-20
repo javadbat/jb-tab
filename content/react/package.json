@@ -1,0 +1,6 @@
+{
+  "name": "jb-tab-content-react",
+  "description": "React wrapper for jb-tab-content",
+  "private": true,
+  "type": "module"
+}

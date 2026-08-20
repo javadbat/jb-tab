@@ -1,0 +1,9 @@
+{
+  "name": "jb-tab-list",
+  "description": "Tab list and animated selection indicator for jb-tab",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "types": "./web-component/dist/index.d.ts",
+  "customElements": "./web-component/custom-elements.json"
+}

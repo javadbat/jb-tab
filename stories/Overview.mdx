@@ -1,0 +1,13 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as Stories from "./JBTab.stories";
+
+<Meta of={Stories} />
+
+# JBTab
+
+`jb-tab` coordinates a directly slotted trigger list with panels that may live anywhere beneath the same tab context. It supports nullable selection, duplicate panels, disabled triggers, horizontal and vertical keyboard navigation, and a moving indicator.
+
+<Canvas of={Stories.Basic} />
+
+See the package README for the full web-component, React, event, accessibility, styling, and animation APIs.
+

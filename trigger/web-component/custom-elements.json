@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "../../README.md",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "lib/jb-tab-trigger.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "JBTabTriggerWebComponent",
+          "description": "Focusable tab trigger controlled by its nearest jb-tab context.",
+          "customElement": true,
+          "tagName": "jb-tab-trigger",
+          "superclass": { "name": "HTMLElement" },
+          "attributes": [
+            { "name": "value", "type": { "text": "string" }, "description": "Value paired with one or more content panels." },
+            { "name": "disabled", "type": { "text": "boolean" }, "default": "false" },
+            {
+              "name": "color",
+              "type": {
+                "text": "'primary' | 'primary-subtle' | 'secondary' | 'secondary-subtle' | 'positive' | 'positive-subtle' | 'danger' | 'danger-subtle' | 'warning' | 'warning-subtle' | 'light' | 'dark' | string"
+              },
+              "description": "Indicator color variant or any valid CSS color."
+            }
+          ],
+          "members": [
+            { "kind": "field", "name": "value", "type": { "text": "string" } },
+            { "kind": "field", "name": "disabled", "type": { "text": "boolean" } },
+            { "kind": "field", "name": "color", "type": { "text": "string | null" } },
+            { "kind": "field", "name": "selected", "type": { "text": "boolean" }, "readonly": true }
+          ],
+          "methods": [{ "name": "select", "description": "Dispatches the same select request as pointer or keyboard activation." }],
+          "events": [
+            {
+              "name": "select",
+              "type": { "text": "CustomEvent<{ value: string; trigger: JBTabTriggerWebComponent }>" },
+              "description": "Bubbling composed selection request consumed by jb-tab."
+            }
+          ],
+          "slots": [{ "name": "", "description": "Visible trigger label or custom content." }],
+          "cssParts": [{ "name": "content" }],
+          "cssProperties": [
+            { "name": "--jb-tab-trigger-color" },
+            { "name": "--jb-tab-trigger-color-selected" },
+            { "name": "--jb-tab-trigger-padding" },
+            { "name": "--jb-tab-trigger-height" },
+            { "name": "--jb-tab-trigger-font-size" },
+            { "name": "--jb-tab-trigger-inline-padding" },
+            { "name": "--jb-tab-trigger-block-padding" },
+            { "name": "--jb-tab-trigger-border-radius" },
+            { "name": "--jb-tab-trigger-primary" },
+            { "name": "--jb-tab-trigger-primary-subtle" },
+            { "name": "--jb-tab-trigger-secondary" },
+            { "name": "--jb-tab-trigger-secondary-subtle" },
+            { "name": "--jb-tab-trigger-positive" },
+            { "name": "--jb-tab-trigger-positive-subtle" },
+            { "name": "--jb-tab-trigger-danger" },
+            { "name": "--jb-tab-trigger-danger-subtle" },
+            { "name": "--jb-tab-trigger-warning" },
+            { "name": "--jb-tab-trigger-warning-subtle" },
+            { "name": "--jb-tab-trigger-light" },
+            { "name": "--jb-tab-trigger-dark" },
+            { "name": "--jb-tab-trigger-indicator-color" }
+          ]
+        }
+      ]
+    }
+  ]
+}
