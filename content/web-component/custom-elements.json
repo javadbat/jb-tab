@@ -13,8 +13,14 @@
           "customElement": true,
           "tagName": "jb-tab-content",
           "superclass": { "name": "HTMLElement" },
-          "attributes": [{ "name": "value", "type": { "text": "string" }, "description": "Value paired with a trigger." }],
-          "members": [{ "kind": "field", "name": "value", "type": { "text": "string" } }, { "kind": "field", "name": "selected", "type": { "text": "boolean" }, "readonly": true }],
+          "attributes": [
+            { "name": "value", "type": { "text": "string" }, "description": "Value paired with a trigger." },
+            { "name": "hidden", "type": { "text": "boolean" }, "description": "Whether the panel is hidden." }
+          ],
+          "members": [
+            { "kind": "field", "name": "value", "type": { "text": "string" } },
+            { "kind": "field", "name": "hidden", "type": { "text": "boolean" } }
+          ],
           "slots": [{ "name": "", "description": "Panel content." }]
         }
       ]

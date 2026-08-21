@@ -97,7 +97,7 @@ Arrow navigation automatically activates the newly focused trigger.
 
 ## Panel display and animation
 
-Inactive `jb-tab-content` hosts use `display: none`; selected hosts use `display: block`. Consumers can override the selected display and define entry or discrete display transitions. Selection is exposed through the `selected` attribute and `:state(selected)`.
+Inactive `jb-tab-content` hosts have `hidden` set to `true` and use `display: none`; visible hosts have `hidden` set to `false` and use `display: block`. Visibility is exposed through the standard `hidden` property and attribute and through `:state(hidden)`. Changing a panel's `hidden` property does not change the selected trigger, so a consumer may explicitly show an additional panel when needed.
 
 ```css
 jb-tab-content {
@@ -105,13 +105,13 @@ jb-tab-content {
   transition: opacity 200ms ease, display 200ms allow-discrete;
 }
 
-jb-tab-content[selected] {
+jb-tab-content:not([hidden]) {
   display: grid;
   opacity: 1;
 }
 
 @starting-style {
-  jb-tab-content[selected] {
+  jb-tab-content:not([hidden]) {
     opacity: 0;
   }
 }

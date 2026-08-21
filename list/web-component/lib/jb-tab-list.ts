@@ -41,7 +41,7 @@ export class JBTabListWebComponent extends JBBaseComponent {
   }
 
   connectedCallback(): void {
-    this.#updateAccessibility();
+    this.#updateOrientation(this.orientation, false);
     this.#observeSizeChanges();
     this.refreshIndicator();
   }
@@ -62,7 +62,7 @@ export class JBTabListWebComponent extends JBBaseComponent {
 
   set orientation(value: JBTabOrientation) {
     const orientation = value === "vertical" ? "vertical" : "horizontal";
-    if (this.getAttribute("orientation") !== orientation) this.setAttribute("orientation", orientation);
+    this.#updateOrientation(orientation, true);
   }
 
   get size(): JBTabListSize {
@@ -105,7 +105,7 @@ export class JBTabListWebComponent extends JBBaseComponent {
   }
 
   #onAttributeChange(name: string): void {
-    if (name === "orientation") this.#updateAccessibility();
+    if (name === "orientation") this.#updateOrientation(this.orientation, false);
     this.refreshIndicator();
   }
 
@@ -150,12 +150,17 @@ export class JBTabListWebComponent extends JBBaseComponent {
     for (const trigger of this.triggers) this.#resizeObserver.observe(trigger);
   }
 
-  #updateAccessibility(): void {
-    const orientation = this.orientation;
+  #updateOrientation(orientation: JBTabOrientation, reflect: boolean): void {
+    if (reflect && this.getAttribute("orientation") !== orientation) {
+      this.setAttribute("orientation", orientation);
+      return;
+    }
     this.setAttribute("aria-orientation", orientation);
     if (this.#internals) this.#internals.ariaOrientation = orientation;
   }
-
+/**
+ * will update indicator background position base on selected trigger
+ */
   #updateIndicator(): void {
     const trigger = this.#selectedTrigger;
     if (!trigger?.isConnected || trigger.parentElement !== this) {

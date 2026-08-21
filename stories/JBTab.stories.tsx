@@ -56,16 +56,26 @@ export const Basic: Story = {
     const contents = Array.from(tab.querySelectorAll<JBTabContentWebComponent>("jb-tab-content"));
     await waitFor(() => expect(tab.value).toBe("home"));
     expect(triggers[0].selected).toBe(true);
-    expect(contents[0].selected).toBe(true);
+    expect(contents[0].hidden).toBe(false);
     expect(getComputedStyle(contents[1]).display).toBe("none");
     expect(triggers[0].getAttribute("aria-controls")).toContain(contents[0].id);
     expect(contents[0].getAttribute("aria-labelledby")).toBe(triggers[0].id);
 
     await userEvent.click(triggers[1]);
     expect(tab.value).toBe("about");
-    expect(contents[0].selected).toBe(false);
-    expect(contents[1].selected).toBe(true);
+    expect(contents[0].hidden).toBe(true);
+    expect(contents[1].hidden).toBe(false);
     expect(args.onChange).toHaveBeenCalledOnce();
+
+    triggers[2].selected = true;
+    expect(tab.value).toBe("user");
+    expect(triggers.filter(trigger => trigger.selected)).toEqual([triggers[2]]);
+    expect(contents[2].hidden).toBe(false);
+    expect(args.onChange).toHaveBeenCalledOnce();
+
+    contents[0].hidden = false;
+    expect(contents[0].hidden).toBe(false);
+    expect(triggers.filter(trigger => trigger.selected)).toEqual([triggers[2]]);
   },
 };
 
@@ -249,10 +259,13 @@ export const Nullable: Story = {
     const triggers = Array.from(tab.querySelectorAll<JBTabTriggerWebComponent>("jb-tab-trigger"));
     const contents = Array.from(tab.querySelectorAll<JBTabContentWebComponent>("jb-tab-content"));
     await waitFor(() => expect(tab.value).toBeNull());
-    expect(contents.every(content => !content.selected)).toBe(true);
+    expect(contents.every(content => content.hidden)).toBe(true);
     expect(triggers[0].tabIndex).toBe(0);
     await userEvent.click(triggers[2]);
     expect(tab.value).toBe("user");
+    triggers[2].selected = false;
+    expect(tab.value).toBeNull();
+    expect(triggers.every(trigger => !trigger.selected)).toBe(true);
   },
 };
 
@@ -271,8 +284,8 @@ export const DuplicatePanels: Story = {
     </JBTab>
   ),
   play: async ({ canvasElement }) => {
-    const selectedPanels = () => canvasElement.querySelectorAll<JBTabContentWebComponent>('jb-tab-content[value="summary"][selected]');
-    await waitFor(() => expect(selectedPanels()).toHaveLength(2));
+    const visiblePanels = () => canvasElement.querySelectorAll<JBTabContentWebComponent>('jb-tab-content[value="summary"]:not([hidden])');
+    await waitFor(() => expect(visiblePanels()).toHaveLength(2));
     const trigger = canvasElement.querySelector<JBTabTriggerWebComponent>('jb-tab-trigger[value="summary"]')!;
     expect(trigger.getAttribute("aria-controls")?.split(" ")).toHaveLength(2);
   },

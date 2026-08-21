@@ -49,7 +49,8 @@ export class JBTabTriggerWebComponent extends JBBaseComponent {
   connectedCallback(): void {
     this.#value = this.getAttribute("value") ?? "";
     this.#updateIndicatorColor(this.getAttribute("color"));
-    this.#updateAccessibility();
+    this.#updateSelectedAccessibility();
+    this.#updateDisabled(this.disabled, false);
   }
 
   attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null): void {
@@ -72,7 +73,7 @@ export class JBTabTriggerWebComponent extends JBBaseComponent {
   }
 
   set disabled(value: boolean) {
-    this.toggleAttribute("disabled", Boolean(value));
+    this.#updateDisabled(Boolean(value), true);
   }
 
   get color(): JBTabTriggerColor | null {
@@ -96,7 +97,9 @@ export class JBTabTriggerWebComponent extends JBBaseComponent {
     this.toggleAttribute("selected", selected);
     if (selected) this.#internals?.states.add("selected");
     else this.#internals?.states.delete("selected");
-    this.#updateAccessibility();
+    this.#updateSelectedAccessibility();
+    this.#updateTabIndex();
+    this.#syncParentValue(selected);
   }
 
   setAriaControls(elements: HTMLElement[]): void {
@@ -122,11 +125,11 @@ export class JBTabTriggerWebComponent extends JBBaseComponent {
 
   #onAttributeChange(name: string, value: string | null): void {
     if (name === "value") this.#value = value ?? "";
+    if (name === "disabled") this.#updateDisabled(value !== null, false);
     if (name === "color") {
       this.#updateIndicatorColor(value);
       this.#refreshListIndicator();
     }
-    this.#updateAccessibility();
   }
 
   #updateIndicatorColor(value: string | null): void {
@@ -174,6 +177,17 @@ export class JBTabTriggerWebComponent extends JBBaseComponent {
     (list as HTMLElement & { refreshIndicator?: () => void }).refreshIndicator?.();
   }
 
+  #syncParentValue(selected: boolean): void {
+    const list = this.parentElement;
+    if (list?.localName !== "jb-tab-list") return;
+    const tab = list.closest("jb-tab") as (HTMLElement & { value: string | null; refresh: () => void }) | null;
+    if (!tab || typeof tab.refresh !== "function") return;
+    if (selected && tab.value !== this.value) tab.value = this.value;
+    else if (!selected && tab.value === this.value) tab.value = null;
+    else return;
+    tab.refresh();
+  }
+
   #onClick = (): void => {
     this.select();
   };
@@ -184,15 +198,24 @@ export class JBTabTriggerWebComponent extends JBBaseComponent {
     this.select();
   };
 
-  #updateAccessibility(): void {
+  #updateSelectedAccessibility(): void {
     const ariaSelected = String(this.#selected);
-    const ariaDisabled = String(this.disabled);
     this.setAttribute("aria-selected", ariaSelected);
-    this.setAttribute("aria-disabled", ariaDisabled);
-    if (this.#internals) {
-      this.#internals.ariaSelected = ariaSelected;
-      this.#internals.ariaDisabled = ariaDisabled;
+    if (this.#internals) this.#internals.ariaSelected = ariaSelected;
+  }
+
+  #updateDisabled(disabled: boolean, reflect: boolean): void {
+    if (reflect && this.hasAttribute("disabled") !== disabled) {
+      this.toggleAttribute("disabled", disabled);
+      return;
     }
+    const ariaDisabled = String(disabled);
+    this.setAttribute("aria-disabled", ariaDisabled);
+    if (this.#internals) this.#internals.ariaDisabled = ariaDisabled;
+    this.#updateTabIndex();
+  }
+
+  #updateTabIndex(): void {
     this.tabIndex = !this.disabled && this.#selected ? 0 : -1;
   }
 }

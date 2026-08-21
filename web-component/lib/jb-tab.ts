@@ -172,7 +172,7 @@ export class JBTabWebComponent extends JBBaseComponent {
     for (const content of contents) {
       const matchingTrigger = triggers.find(trigger => trigger.value === content.value) ?? null;
       content.setAriaLabelledBy(matchingTrigger?.id ?? null);
-      content.selected = this.#value !== null && content.value === this.#value;
+      content.hidden = this.#value === null || content.value !== this.#value;
     }
     for (const list of lists) {
       const selectedTrigger = list.triggers.find(trigger => trigger.selected) ?? null;

@@ -1,34 +1,24 @@
 "use client";
 
-import React, { useEffect, useImperativeHandle, useRef } from "react";
-import { useEvent } from "jb-core/react";
+import React, { useImperativeHandle, useRef } from "react";
 import "jb-tab/trigger";
-import type { JBTabSelectEvent, JBTabTriggerColor, JBTabTriggerWebComponent } from "jb-tab/trigger";
+import type { JBTabTriggerWebComponent } from "jb-tab/trigger";
 import type { JBElementStandardProps } from "jb-core/react";
+import { type JBTabTriggerAttributes, useJBTabTriggerAttributes } from "./attributes-hook.js";
+import { type JBTabTriggerEventProps, useJBTabTriggerEvents } from "./events-hook.js";
 import "./module-declaration.js";
 
-export type JBTabTriggerProps = JBElementStandardProps<JBTabTriggerWebComponent, "onSelect"> & {
-  value: string;
-  disabled?: boolean;
-  color?: JBTabTriggerColor;
-  onSelect?: (event: JBTabSelectEvent) => void;
-};
+export type JBTabTriggerProps = JBElementStandardProps<JBTabTriggerWebComponent, keyof JBTabTriggerAttributes | keyof JBTabTriggerEventProps> &
+  JBTabTriggerAttributes &
+  JBTabTriggerEventProps;
 
 export const JBTabTrigger = React.forwardRef<JBTabTriggerWebComponent, JBTabTriggerProps>((props, ref) => {
   const element = useRef<JBTabTriggerWebComponent>(null);
   useImperativeHandle(ref, () => element.current!, []);
   const { value, disabled, color, onSelect, children, ...otherProps } = props;
 
-  useEffect(() => {
-    if (element.current) element.current.value = value;
-  }, [value]);
-  useEffect(() => {
-    if (element.current && disabled !== undefined) element.current.disabled = disabled;
-  }, [disabled]);
-  useEffect(() => {
-    if (element.current) element.current.color = color ?? null;
-  }, [color]);
-  useEvent(element, "select", onSelect);
+  useJBTabTriggerAttributes(element, { value, disabled, color });
+  useJBTabTriggerEvents(element, { onSelect });
 
   return (
     <jb-tab-trigger ref={element} value={value} disabled={disabled || undefined} color={color} {...otherProps}>

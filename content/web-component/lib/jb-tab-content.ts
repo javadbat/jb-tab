@@ -4,11 +4,11 @@ import { renderHTML } from "./render.js";
 
 export class JBTabContentWebComponent extends JBBaseComponent {
   static get observedAttributes(): string[] {
-    return ["value"];
+    return ["value", "hidden"];
   }
 
   #value = "";
-  #selected = false;
+  #hidden = true;
   #internals?: ElementInternals;
 
   constructor() {
@@ -27,7 +27,7 @@ export class JBTabContentWebComponent extends JBBaseComponent {
 
   connectedCallback(): void {
     this.#value = this.getAttribute("value") ?? "";
-    this.#updateAccessibility();
+    this.#updateHidden(this.#hidden, true);
   }
 
   attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null): void {
@@ -45,18 +45,12 @@ export class JBTabContentWebComponent extends JBBaseComponent {
     if (this.getAttribute("value") !== normalizedValue) this.setAttribute("value", normalizedValue);
   }
 
-  get selected(): boolean {
-    return this.#selected;
+  get hidden(): boolean {
+    return this.#hidden;
   }
 
-  set selected(value: boolean) {
-    const selected = Boolean(value);
-    if (this.#selected === selected) return;
-    this.#selected = selected;
-    this.toggleAttribute("selected", selected);
-    if (selected) this.#internals?.states.add("selected");
-    else this.#internals?.states.delete("selected");
-    this.#updateAccessibility();
+  set hidden(value: boolean) {
+    this.#updateHidden(Boolean(value), true);
   }
 
   setAriaLabelledBy(triggerId: string | null): void {
@@ -66,10 +60,17 @@ export class JBTabContentWebComponent extends JBBaseComponent {
 
   #onAttributeChange(name: string, value: string | null): void {
     if (name === "value") this.#value = value ?? "";
+    if (name === "hidden") this.#updateHidden(value !== null, false);
   }
 
-  #updateAccessibility(): void {
-    const hidden = !this.#selected;
+  #updateHidden(hidden: boolean, reflect: boolean): void {
+    this.#hidden = hidden;
+    if (reflect && this.hasAttribute("hidden") !== hidden) {
+      this.toggleAttribute("hidden", hidden);
+      return;
+    }
+    if (hidden) this.#internals?.states.add("hidden");
+    else this.#internals?.states.delete("hidden");
     this.setAttribute("aria-hidden", String(hidden));
     if (this.#internals) this.#internals.ariaHidden = String(hidden);
   }
