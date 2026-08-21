@@ -1,0 +1,15 @@
+jb-tab.cupertino-style {
+  --jb-tab-list-background: #e9e9eb;
+  --jb-tab-list-padding: 0.2rem;
+  --jb-tab-list-gap: 0;
+  --jb-tab-list-indicator-color: #ffffff;
+  --jb-tab-list-indicator-shadow: 0 1px 3px rgb(0 0 0 / 0.18);
+  --jb-tab-trigger-background-hover: rgb(255 255 255 / 0.45);
+  --jb-tab-trigger-color: #3a3a3c;
+  --jb-tab-trigger-color-hover: #000000;
+  --jb-tab-trigger-color-selected: #000000;
+  --jb-tab-trigger-border-radius: 0.45rem;
+  --jb-tab-trigger-font-size: 0.8125rem;
+  --jb-tab-trigger-font-weight-selected: 600;
+  --jb-tab-trigger-focus-ring-color: #007aff;
+}

@@ -1,0 +1,14 @@
+jb-tab.sunset-style {
+  --jb-tab-list-background: #532c3b;
+  --jb-tab-list-padding: 0.25rem;
+  --jb-tab-list-gap: 0.125rem;
+  --jb-tab-list-indicator-color: #ffd166;
+  --jb-tab-list-indicator-shadow: 0 0.4rem 1rem rgb(249 115 91 / 0.3);
+  --jb-tab-trigger-background-hover: rgb(255 209 102 / 0.1);
+  --jb-tab-trigger-color: #ffe5d1;
+  --jb-tab-trigger-color-hover: #ffffff;
+  --jb-tab-trigger-color-selected: #3a1725;
+  --jb-tab-trigger-border-radius: 0.75rem;
+  --jb-tab-trigger-font-weight-selected: 700;
+  --jb-tab-trigger-focus-ring-color: #ffd166;
+}

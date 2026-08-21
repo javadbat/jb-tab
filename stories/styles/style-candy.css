@@ -1,0 +1,14 @@
+jb-tab.candy-style {
+  --jb-tab-list-background: #fdf2f8;
+  --jb-tab-list-padding: 0.3rem;
+  --jb-tab-list-gap: 0.2rem;
+  --jb-tab-list-indicator-color: #ec4899;
+  --jb-tab-list-indicator-shadow: 0 0.35rem 0.9rem rgb(236 72 153 / 0.3);
+  --jb-tab-trigger-background-hover: rgb(236 72 153 / 0.1);
+  --jb-tab-trigger-color: #9d356e;
+  --jb-tab-trigger-color-hover: #701a4c;
+  --jb-tab-trigger-color-selected: #ffffff;
+  --jb-tab-trigger-border-radius: 999px;
+  --jb-tab-trigger-font-weight-selected: 700;
+  --jb-tab-trigger-focus-ring-color: #ec4899;
+}

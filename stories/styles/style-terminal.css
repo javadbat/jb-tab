@@ -1,0 +1,20 @@
+jb-tab.terminal-style {
+  --jb-tab-list-background: #07110b;
+  --jb-tab-list-padding: 0.2rem;
+  --jb-tab-list-gap: 0;
+  --jb-tab-list-indicator-color: #163821;
+  --jb-tab-list-indicator-shadow: inset 0 0 0 1px #62ff93, 0 0 0.75rem rgb(98 255 147 / 0.18);
+  --jb-tab-trigger-background-hover: rgb(98 255 147 / 0.1);
+  --jb-tab-trigger-color: #8ecf9f;
+  --jb-tab-trigger-color-hover: #d8ffe2;
+  --jb-tab-trigger-color-selected: #62ff93;
+  --jb-tab-trigger-border-radius: 0;
+  --jb-tab-trigger-font-weight: 400;
+  --jb-tab-trigger-font-weight-selected: 700;
+  --jb-tab-trigger-focus-ring-color: #62ff93;
+}
+
+jb-tab.terminal-style jb-tab-trigger {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  text-transform: uppercase;
+}

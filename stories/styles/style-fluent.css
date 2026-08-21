@@ -1,0 +1,14 @@
+jb-tab.fluent-style {
+  --jb-tab-list-background: #f3f3f3;
+  --jb-tab-list-padding: 0.25rem;
+  --jb-tab-list-gap: 0.125rem;
+  --jb-tab-list-indicator-color: #ffffff;
+  --jb-tab-list-indicator-shadow: 0 1px 2px rgb(0 0 0 / 0.14), 0 0 0 1px rgb(0 0 0 / 0.06);
+  --jb-tab-trigger-background-hover: rgb(0 0 0 / 0.04);
+  --jb-tab-trigger-color: #424242;
+  --jb-tab-trigger-color-hover: #242424;
+  --jb-tab-trigger-color-selected: #0078d4;
+  --jb-tab-trigger-border-radius: 0.25rem;
+  --jb-tab-trigger-font-weight-selected: 600;
+  --jb-tab-trigger-focus-ring-color: #0078d4;
+}

@@ -1,0 +1,19 @@
+jb-tab.aurora-style {
+  --jb-tab-list-background: rgb(15 23 42 / 0.58);
+  --jb-tab-list-padding: 0.3rem;
+  --jb-tab-list-gap: 0.125rem;
+  --jb-tab-list-indicator-color: #7de4d3;
+  --jb-tab-list-indicator-shadow: 0 0.5rem 1.25rem rgb(125 228 211 / 0.24);
+  --jb-tab-trigger-background-hover: rgb(255 255 255 / 0.1);
+  --jb-tab-trigger-color: #d7e5f2;
+  --jb-tab-trigger-color-hover: #ffffff;
+  --jb-tab-trigger-color-selected: #06131d;
+  --jb-tab-trigger-border-radius: 0.65rem;
+  --jb-tab-trigger-font-weight-selected: 700;
+  --jb-tab-trigger-focus-ring-color: #7de4d3;
+}
+
+jb-tab.aurora-style jb-tab-list::part(list) {
+  border: 1px solid rgb(255 255 255 / 0.16);
+  backdrop-filter: blur(0.75rem);
+}

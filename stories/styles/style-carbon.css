@@ -1,0 +1,15 @@
+jb-tab.carbon-style {
+  --jb-tab-list-background: #161616;
+  --jb-tab-list-padding: 0;
+  --jb-tab-list-gap: 1px;
+  --jb-tab-list-indicator-color: var(--jb-primary);
+  --jb-tab-list-indicator-shadow: none;
+  --jb-tab-trigger-background-hover: rgb(255 255 255 / 0.12);
+  --jb-tab-trigger-color: #c6c6c6;
+  --jb-tab-trigger-color-hover: #ffffff;
+  --jb-tab-trigger-color-selected: #ffffff;
+  --jb-tab-trigger-border-radius: 0;
+  --jb-tab-trigger-font-weight: 400;
+  --jb-tab-trigger-font-weight-selected: 600;
+  --jb-tab-trigger-focus-ring-color: #78a9ff;
+}

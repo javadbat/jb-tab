@@ -57,3 +57,16 @@
   gap: 1rem;
   justify-items: start;
 }
+
+.jb-tab-style-panel {
+  box-sizing: border-box;
+  min-height: 4rem;
+  margin-block-start: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--jb-border-color, #e5e7eb);
+  border-radius: var(--jb-radius, 0.5rem);
+  background: var(--jb-surface-primary, #ffffff);
+  color: var(--jb-content-primary, #334155);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}

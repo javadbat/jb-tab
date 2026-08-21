@@ -1,0 +1,202 @@
+import { Meta, Source, Story, Title } from '@storybook/addon-docs/blocks';
+import * as StyleStories from './Styles.stories';
+import antDesignThemeCss from '../../../docs/styles/ant-design.css?raw';
+import auroraThemeCss from '../../../docs/styles/aurora.css?raw';
+import bootstrapThemeCss from '../../../docs/styles/bootstrap.css?raw';
+import candyThemeCss from '../../../docs/styles/candy.css?raw';
+import carbonThemeCss from '../../../docs/styles/carbon.css?raw';
+import cupertinoThemeCss from '../../../docs/styles/cupertino.css?raw';
+import fluentThemeCss from '../../../docs/styles/fluent.css?raw';
+import forestThemeCss from '../../../docs/styles/forest.css?raw';
+import materialThemeCss from '../../../docs/styles/material.css?raw';
+import porcelainThemeCss from '../../../docs/styles/porcelain.css?raw';
+import sunsetThemeCss from '../../../docs/styles/sunset.css?raw';
+import terminalThemeCss from '../../../docs/styles/terminal.css?raw';
+import antDesignTabCss from './styles/style-ant-design.css?raw';
+import auroraTabCss from './styles/style-aurora.css?raw';
+import bootstrapTabCss from './styles/style-bootstrap.css?raw';
+import candyTabCss from './styles/style-candy.css?raw';
+import carbonTabCss from './styles/style-carbon.css?raw';
+import cupertinoTabCss from './styles/style-cupertino.css?raw';
+import fluentTabCss from './styles/style-fluent.css?raw';
+import forestTabCss from './styles/style-forest.css?raw';
+import materialTabCss from './styles/style-material.css?raw';
+import porcelainTabCss from './styles/style-porcelain.css?raw';
+import sunsetTabCss from './styles/style-sunset.css?raw';
+import terminalTabCss from './styles/style-terminal.css?raw';
+
+<Meta title="Components/JBTab/Styling" />
+
+<Title>Styling</Title>
+
+`JBTab` styling is split between the list surface, moving indicator, triggers, and consumer-owned panel content. Use the public `--jb-tab-*` variables first and CSS parts only when a specific shadow-DOM surface needs direct styling.
+
+## Live Gallery
+
+<Story of={StyleStories.Gallery} />
+
+<Source of={StyleStories.Gallery} />
+
+## Common Design Tokens
+
+- [Theme Colors](../../jb-core/theme/stories/colors.mdx) documents shared color variables and customization.
+- [Theme Sizes](../../jb-core/theme/stories/sizes.mdx) documents shared size and radius variables.
+- [Theme Custom Galleries](https://javadbat.github.io/design-system/?path=/docs/theme-custom-material--docs) gathers reusable component recipes.
+
+Tab recipes should map common tokens into `--jb-tab-list-*` and `--jb-tab-trigger-*` variables so they remain compatible with design-system theme packs.
+
+## Styling Model
+
+- Shared example theme packs live in [`docs/styles`](https://github.com/javadbat/design-system/tree/main/docs/styles).
+- Tab-specific recipes live in [`modules/jb-tab/stories/styles`](https://github.com/javadbat/design-system/tree/main/modules/jb-tab/stories/styles).
+- Set list variables on `jb-tab-list`, trigger variables on `jb-tab-trigger`, or both on an ancestor so they inherit.
+- Style panel content in light DOM with ordinary classes; `jb-tab-content` does not encapsulate its children.
+
+## Recommended Customization Path
+
+1. Set list background, padding, gap, radius, indicator color, motion, and shadow with `--jb-tab-list-*` variables.
+2. Set trigger text, hover, height, padding, radius, typography, focus ring, and disabled opacity with `--jb-tab-trigger-*` variables.
+3. Use the trigger `color` prop for a per-tab indicator color.
+4. Use `jb-tab-list::part(list)`, `jb-tab-list::part(indicator)`, or `jb-tab-trigger::part(content)` only when variables do not cover the required treatment.
+5. Keep product panel layout and decoration in light-DOM classes.
+
+## Parts
+
+| Part | Element | Purpose |
+| --- | --- | --- |
+| `list` | `jb-tab-list` | Flex container and list background. |
+| `indicator` | `jb-tab-list` | Animated selection indicator. |
+| `content` | `jb-tab-trigger` | Trigger label content. |
+
+## CSS Variables
+
+| Variable | Description |
+| --- | --- |
+| `--jb-tab-list-background` | List surface background. |
+| `--jb-tab-list-padding` | Space between the list surface and triggers. |
+| `--jb-tab-list-gap` | Gap between triggers. |
+| `--jb-tab-list-indicator-color` | Default indicator color. |
+| `--jb-tab-list-indicator-duration` | Indicator transition duration. |
+| `--jb-tab-list-indicator-easing` | Indicator transition easing. |
+| `--jb-tab-list-indicator-shadow` | Indicator shadow. |
+| `--jb-tab-trigger-background` | Trigger background. |
+| `--jb-tab-trigger-background-hover` | Trigger hover background. |
+| `--jb-tab-trigger-color` | Default trigger text color. |
+| `--jb-tab-trigger-color-hover` | Hovered trigger text color. |
+| `--jb-tab-trigger-color-selected` | Selected trigger text color. |
+| `--jb-tab-trigger-height` | Trigger height. |
+| `--jb-tab-trigger-padding` | Trigger block and inline padding. |
+| `--jb-tab-trigger-border-radius` | Shared trigger, indicator, and derived list radius. |
+| `--jb-tab-trigger-font-size` | Trigger font size. |
+| `--jb-tab-trigger-font-weight` | Default trigger font weight. |
+| `--jb-tab-trigger-font-weight-selected` | Selected trigger font weight. |
+| `--jb-tab-trigger-focus-ring-color` | Keyboard focus ring color. |
+| `--jb-tab-trigger-disabled-opacity` | Disabled trigger opacity. |
+
+Size-specific variables are also available for `xs`, `sm`, `md`, `lg`, and `xl`, including list padding and trigger height, padding, radius, and font size.
+
+## Starter Recipe
+
+```css
+jb-tab.brand-tabs {
+  --jb-tab-list-background: #eff6ff;
+  --jb-tab-list-padding: 0.25rem;
+  --jb-tab-list-gap: 0.125rem;
+  --jb-tab-list-indicator-color: #2563eb;
+  --jb-tab-list-indicator-shadow: 0 0.25rem 0.75rem rgb(37 99 235 / 0.24);
+  --jb-tab-trigger-color: #475569;
+  --jb-tab-trigger-color-hover: #0f172a;
+  --jb-tab-trigger-color-selected: #ffffff;
+  --jb-tab-trigger-background-hover: rgb(37 99 235 / 0.08);
+  --jb-tab-trigger-border-radius: 0.5rem;
+  --jb-tab-trigger-focus-ring-color: #2563eb;
+}
+```
+
+## Style Recipes
+
+### Carbon
+<Story of={StyleStories.Carbon} />
+<Source of={StyleStories.Carbon} />
+<Source code={carbonThemeCss} language="css" />
+<Source code={carbonTabCss} language="css" />
+
+### Aurora
+<Story of={StyleStories.Aurora} />
+<Source of={StyleStories.Aurora} />
+<Source code={auroraThemeCss} language="css" />
+<Source code={auroraTabCss} language="css" />
+
+### Forest
+<Story of={StyleStories.Forest} />
+<Source of={StyleStories.Forest} />
+<Source code={forestThemeCss} language="css" />
+<Source code={forestTabCss} language="css" />
+
+### Sunset
+<Story of={StyleStories.Sunset} />
+<Source of={StyleStories.Sunset} />
+<Source code={sunsetThemeCss} language="css" />
+<Source code={sunsetTabCss} language="css" />
+
+### Porcelain
+<Story of={StyleStories.Porcelain} />
+<Source of={StyleStories.Porcelain} />
+<Source code={porcelainThemeCss} language="css" />
+<Source code={porcelainTabCss} language="css" />
+
+### Candy
+<Story of={StyleStories.Candy} />
+<Source of={StyleStories.Candy} />
+<Source code={candyThemeCss} language="css" />
+<Source code={candyTabCss} language="css" />
+
+### Terminal
+<Story of={StyleStories.Terminal} />
+<Source of={StyleStories.Terminal} />
+<Source code={terminalThemeCss} language="css" />
+<Source code={terminalTabCss} language="css" />
+
+### Material
+<Story of={StyleStories.Material} />
+<Source of={StyleStories.Material} />
+<Source code={materialThemeCss} language="css" />
+<Source code={materialTabCss} language="css" />
+
+### Fluent
+<Story of={StyleStories.Fluent} />
+<Source of={StyleStories.Fluent} />
+<Source code={fluentThemeCss} language="css" />
+<Source code={fluentTabCss} language="css" />
+
+### Bootstrap
+<Story of={StyleStories.Bootstrap} />
+<Source of={StyleStories.Bootstrap} />
+<Source code={bootstrapThemeCss} language="css" />
+<Source code={bootstrapTabCss} language="css" />
+
+### Cupertino
+<Story of={StyleStories.Cupertino} />
+<Source of={StyleStories.Cupertino} />
+<Source code={cupertinoThemeCss} language="css" />
+<Source code={cupertinoTabCss} language="css" />
+
+### Ant Design
+<Story of={StyleStories.AntDesign} />
+<Source of={StyleStories.AntDesign} />
+<Source code={antDesignThemeCss} language="css" />
+<Source code={antDesignTabCss} language="css" />
+
+## Theme File Pattern
+
+Apply one shared theme class and one component recipe class to the same tab subtree. Keep reusable tokens in `docs/styles` and component API mappings in `modules/jb-tab/stories/styles`.
+
+```css
+.theme-name-style {
+  /* shared design-system variables */
+}
+
+jb-tab.theme-name-style {
+  /* tab list, indicator, and trigger variables */
+}
+```

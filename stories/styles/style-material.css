@@ -1,0 +1,24 @@
+jb-tab.material-style {
+  --jb-tab-list-background: transparent;
+  --jb-tab-list-padding: 0;
+  --jb-tab-list-gap: 0;
+  --jb-tab-list-indicator-color: #0b57d0;
+  --jb-tab-list-indicator-shadow: none;
+  --jb-tab-trigger-background-hover: rgb(11 87 208 / 0.08);
+  --jb-tab-trigger-color: #444746;
+  --jb-tab-trigger-color-hover: #0b57d0;
+  --jb-tab-trigger-color-selected: #0b57d0;
+  --jb-tab-trigger-border-radius: 0;
+  --jb-tab-trigger-font-weight-selected: 500;
+  --jb-tab-trigger-focus-ring-color: #0b57d0;
+}
+
+jb-tab.material-style jb-tab-list:not([orientation="vertical"])::part(indicator) {
+  height: 3px !important;
+  margin-block-start: calc(var(--jb-tab-trigger-height, 2.5rem) - 3px);
+  border-radius: 3px 3px 0 0;
+}
+
+jb-tab.material-style jb-tab-list[orientation="vertical"] {
+  --jb-tab-list-indicator-color: #dbe8ff;
+}

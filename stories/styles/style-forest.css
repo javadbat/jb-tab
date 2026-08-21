@@ -1,0 +1,14 @@
+jb-tab.forest-style {
+  --jb-tab-list-background: #18392b;
+  --jb-tab-list-padding: 0.3rem;
+  --jb-tab-list-gap: 0.2rem;
+  --jb-tab-list-indicator-color: #f3d36a;
+  --jb-tab-list-indicator-shadow: 0 0.35rem 0.8rem rgb(0 0 0 / 0.22);
+  --jb-tab-trigger-background-hover: rgb(243 211 106 / 0.12);
+  --jb-tab-trigger-color: #c9ddcf;
+  --jb-tab-trigger-color-hover: #ffffff;
+  --jb-tab-trigger-color-selected: #18392b;
+  --jb-tab-trigger-border-radius: 999px;
+  --jb-tab-trigger-font-weight-selected: 700;
+  --jb-tab-trigger-focus-ring-color: #f3d36a;
+}
