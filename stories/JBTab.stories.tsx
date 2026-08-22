@@ -79,6 +79,34 @@ export const Basic: Story = {
   },
 };
 
+export const RTL: Story = {
+  globals: {
+    locale: "fa",
+    dir: "rtl",
+  },
+  render: () => (
+    <JBTab defaultValue="profile">
+      <JBTabList aria-label="بخش‌های حساب کاربری">
+        <JBTabTrigger value="profile">پروفایل</JBTabTrigger>
+        <JBTabTrigger value="security">امنیت</JBTabTrigger>
+        <JBTabTrigger value="notifications">اعلان‌ها</JBTabTrigger>
+      </JBTabList>
+      <JBTabContent value="profile">اطلاعات پروفایل شما</JBTabContent>
+      <JBTabContent value="security">تنظیمات امنیت حساب کاربری</JBTabContent>
+      <JBTabContent value="notifications">تنظیمات اعلان‌ها</JBTabContent>
+    </JBTab>
+  ),
+  play: async ({ canvasElement }) => {
+    const tab = canvasElement.querySelector<JBTabWebComponent>("jb-tab")!;
+    const list = tab.querySelector<JBTabListWebComponent>("jb-tab-list")!;
+    const security = tab.querySelector<JBTabTriggerWebComponent>('jb-tab-trigger[value="security"]')!;
+    await waitFor(() => expect(getComputedStyle(list).direction).toBe("rtl"));
+    expect(tab.value).toBe("profile");
+    await userEvent.click(security);
+    expect(tab.value).toBe("security");
+  },
+};
+
 export const ColoredIndicators: Story = {
   render: () => (
     <JBTab>
