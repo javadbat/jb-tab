@@ -1,6 +1,6 @@
 {
   "name": "jb-tab",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Accessible tabs web components for the JB design system",
   "type": "module",
   "author": {
@@ -85,7 +85,7 @@
   "customElements": "web-component/custom-elements.json",
   "repository": {
     "type": "git",
-    "url": "git@github.com:javadbat/jb-tab.git"
+    "url": "https://github.com/javadbat/jb-tab.git"
   },
   "dependencies": {
     "jb-core": "^0.35.0"
