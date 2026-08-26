@@ -18,7 +18,7 @@
   transition: background-color 200ms ease;
 }
 
-:host(:hover:not([disabled])) {
+:host(:hover:not([disabled]):not([selected])) {
   background: var(--background-hover);
   color: var(--color-hover);
 }

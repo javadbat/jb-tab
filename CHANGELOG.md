@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.2] - 2026-08-21
+
+### Fixed
+
+- Fix Hover on selected element.
+
 ## [0.1.0] - 2026-08-21
 
 - Add `jb-tab`, `jb-tab-list`, `jb-tab-trigger`, and `jb-tab-content`.
