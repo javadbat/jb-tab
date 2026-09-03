@@ -15,9 +15,9 @@ export type JBTabTriggerProps = JBElementStandardProps<JBTabTriggerWebComponent,
 export const JBTabTrigger = React.forwardRef<JBTabTriggerWebComponent, JBTabTriggerProps>((props, ref) => {
   const element = useRef<JBTabTriggerWebComponent>(null);
   useImperativeHandle(ref, () => element.current!, []);
-  const { value, disabled, color, onSelect, children, ...otherProps } = props;
+  const { value, disabled, color, selected, onSelect, children, ...otherProps } = props;
 
-  useJBTabTriggerAttributes(element, { value, disabled, color });
+  useJBTabTriggerAttributes(element, { value, disabled, color, selected });
   useJBTabTriggerEvents(element, { onSelect });
 
   return (

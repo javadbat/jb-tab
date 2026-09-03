@@ -1,6 +1,6 @@
 {
   "name": "jb-tab",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Accessible tabs web components for the JB design system",
   "type": "module",
   "author": {

@@ -84,6 +84,7 @@ The list and panels may be nested in ordinary light-DOM elements. Triggers must 
 | `jb-tab-trigger` | `value` | `string` | Required value used to select matching panels. |
 | `jb-tab-trigger` | `disabled` | `boolean` | Prevents selection and removes the trigger from keyboard navigation. |
 | `jb-tab-trigger` | `color` | variant or CSS color | Sets the moving indicator color for this trigger. |
+| `jb-tab-trigger` | `selected` | `boolean` | Writable native-style selection state; synchronizes the owning tab value. |
 | `jb-tab-content` | `value` | `string` | Shows the panel when its value matches the owning tab. |
 | `jb-tab-content` | `hidden` | `boolean` | Exposes and optionally overrides panel visibility. |
 

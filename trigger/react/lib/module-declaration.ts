@@ -10,6 +10,7 @@ declare module "react" {
       value?: string;
       disabled?: boolean | string;
       color?: JBTabTriggerColor;
+      selected?: boolean;
     }
   }
 }

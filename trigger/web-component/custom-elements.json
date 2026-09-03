@@ -28,7 +28,7 @@
             { "kind": "field", "name": "value", "type": { "text": "string" } },
             { "kind": "field", "name": "disabled", "type": { "text": "boolean" } },
             { "kind": "field", "name": "color", "type": { "text": "string | null" } },
-            { "kind": "field", "name": "selected", "type": { "text": "boolean" }, "readonly": true }
+            { "kind": "field", "name": "selected", "type": { "text": "boolean" } }
           ],
           "methods": [{ "name": "select", "description": "Dispatches the same select request as pointer or keyboard activation." }],
           "events": [

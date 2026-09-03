@@ -5,6 +5,7 @@ export type JBTabTriggerAttributes = {
   value: string;
   disabled?: boolean;
   color?: JBTabTriggerColor;
+  selected?: boolean;
 };
 
 export function useJBTabTriggerAttributes(element: RefObject<JBTabTriggerWebComponent | null>, props: JBTabTriggerAttributes): void {
@@ -19,4 +20,8 @@ export function useJBTabTriggerAttributes(element: RefObject<JBTabTriggerWebComp
   useEffect(() => {
     if (element.current) element.current.color = props.color ?? null;
   }, [props.color, element.current]);
+
+  useEffect(() => {
+    if (element.current && props.selected !== undefined) element.current.selected = props.selected;
+  }, [props.selected, element.current]);
 }

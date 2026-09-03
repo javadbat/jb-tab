@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.0] - 2026-09-03
+
+### Fixed
+
+- Corrected the custom-elements manifest to mark the writable `jb-tab-trigger.selected` property as writable.
+
+### Added
+
+- Added the writable `selected` prop to the React tab-trigger wrapper.
+
 ## [0.1.2] - 2026-08-21
 
 ### Fixed

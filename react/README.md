@@ -89,6 +89,7 @@ All wrappers accept standard React element props and forward refs to their under
 | `value` | `string` | Required value used to select matching content. Trigger values must be unique. |
 | `disabled` | `boolean` | Prevents pointer and keyboard selection. |
 | `color` | `JBTabTriggerColor` | Design-system color variant or any valid CSS color for the indicator. |
+| `selected` | `boolean` | Writable native-style selection state; synchronizes the owning tab value. |
 | `onSelect` | `(event: JBTabSelectEvent) => void` | Called when this trigger is selected by the user. |
 
 ### `JBTabContent`
